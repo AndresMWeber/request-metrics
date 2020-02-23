@@ -11,8 +11,7 @@ from utils import log_start, log_end_response, log_report, config, coro
 @click.option('--data', '-d', default=config.PASS_PAYLOAD_FILE, help="JSON data (if using POST).")
 @click.option('--verb', '-v', default='post', help="The type of request to perform")
 @click.option('--runasync', '-a', default=False, help="Run the requests asynchronously or not.")
-@coro
-async def get_average_response_time(runs: str, url: str, data: str, verb: str, runasync: bool) -> None:
+def get_average_response_time(runs: str, url: str, data: str, verb: str, runasync: bool) -> None:
     log_start(url, verb, runs)
     data = load_payload(data)
 
