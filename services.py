@@ -27,8 +27,7 @@ class RequestService:
         tasks = []
         async with aiohttp.ClientSession() as session:
             for _ in range(runs):
-                task = asyncio.ensure_future(
-                    cls.do_request(session, url, request_args, runs, verb))
+                task = cls.do_request(session, url, request_args, runs, verb)
                 tasks.append(task)
             _ = await asyncio.gather(*tasks)
 
