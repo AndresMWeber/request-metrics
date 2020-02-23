@@ -1,0 +1,9 @@
+{
+    "passType": "demo.testing",
+    "pass": {
+        "issuerName": "keddelo",
+        "firstName": "brigadeer",
+        "lastName": "keebo",
+        "hexBackground": "#F55555"
+    }
+}

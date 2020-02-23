@@ -1,0 +1,15 @@
+aiohttp==3.6.2
+async-timeout==3.0.1
+attrs==19.3.0
+certifi==2019.11.28
+chardet==3.0.4
+click==6.7
+idna==2.9
+idna-ssl==1.1.0
+multidict==4.7.5
+pkg-resources==0.0.0
+request-metrics-andresmweber==0.0.1
+requests==2.23.0
+typing-extensions==3.7.4.1
+urllib3==1.25.8
+yarl==1.4.2
