@@ -35,9 +35,10 @@ class RequestService:
 
         start_time = timer()
         async with getattr(session, verb)(**request_args) as response:
+            elapsed = float(timer() - start_time)
             if response.status == 200:
-                cls.runtimes.append(timer() - start_time)
-            log_end_response(response.status, float(timer() - start_time))
+                cls.runtimes.append(elapsed)
+            log_end_response(response.status, elapsed)
 
     @classmethod
     def do_requests_sync(cls, url: str, data: dict, runs: int, verb: str):
