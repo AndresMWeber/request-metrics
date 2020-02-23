@@ -82,6 +82,9 @@ Succesfully loaded payload file.
 
 Average run time was 6.56s over 10 runs with 0 non-200 responses.
 ```
+### Sample visual:
+![image](https://user-images.githubusercontent.com/1587270/75119852-aabd5d80-5654-11ea-8bfe-893fe3284c48.png)
+
 ## 📁 Documentation <a name = "documentation"></a>
 Feel free to run the script with the --help command:
 ``` bash
