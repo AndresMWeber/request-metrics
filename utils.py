@@ -34,13 +34,13 @@ def log_start(url: str, verb: str, runs: int):
         OK=bcolors.UNDERLINE))
 
 
-def log_end_response(response: ClientResponse) -> None:
+def log_end_response(status: int, elapsed: float) -> None:
     print('| {STATUS}\033[1m {} {END}{END} | - {TIME}{}{END}'.format(
-        response.status,
-        response.elapsed,
+        status,
+        elapsed,
         END=bcolors.ENDC,
-        TIME=bcolors.OKBLUE if response.elapsed < 1 else bcolors.OKGREEN if response.elapsed <= 3 else bcolors.WARNING if response.elapsed < 5 else bcolors.FAIL,
-        STATUS=bcolors.OKBLUE if response.status == 200 else bcolors.FAIL),
+        TIME=bcolors.OKBLUE if elapsed < 1 else bcolors.OKGREEN if elapsed <= 3 else bcolors.WARNING if elapsed < 5 else bcolors.FAIL,
+        STATUS=bcolors.OKBLUE if status == 200 else bcolors.FAIL),
         flush=True)
 
 
