@@ -28,6 +28,10 @@
 ## 📙 About <a name = "about"></a>
 The start of a library for testing out metrics for http requests.  Will only have average response time for now.
 
+I added async capabilities as a flag, however the tests were reporting elapsed times of roughly 1.5x longer than normal, so there might be a bug.  
+
+`aiohttp` does not support returning elapsed time as well, so there could be other factors due to Python code.
+
 ## ⚙️ Setup <a name = "setup"></a>
 #### Requirements:
 
@@ -85,11 +89,12 @@ Feel free to run the script with the --help command:
 Usage: get_average_response_time.py [OPTIONS]
 
 Options:
--r, --runs INTEGER  Number of requests to run.
--u, --url TEXT      API Endpoint to post to.
--d, --data TEXT     JSON data (if using POST).
--v, --verb TEXT     The type of request to perform
---help              Show this message and exit.
+  -r, --runs INTEGER   Number of requests to run.
+  -u, --url TEXT       API Endpoint to post to.
+  -d, --data TEXT      JSON data (if using POST).
+  -v, --verb TEXT      The type of request to perform
+  -a, --runasync TEXT  Run the requests asynchronously or not.
+  --help               Show this message and exit.
 ```
 
 ## 🧪 Testing <a name = "testing"></a>
