@@ -1,15 +1,14 @@
 from urllib.parse import urljoin
 import asyncio
+import json
 from aiohttp import ClientResponse
 from functools import update_wrapper
 from functools import wraps
 
-
 class config:
-    BASE_URL = 'https://api.passninja.com/v1/'
-    PASSES = 'passes'
-    PASSES_ENDPOINT = urljoin(BASE_URL, PASSES)
-    PASS_PAYLOAD_FILE = './payload.json'
+    ENDPOINT = urljoin('https://api.passninja.com/v1', 'passes')
+    PAYLOAD_FILE = './payload_data.json'
+    HEADER_FILE = './payload_headers.json'
     JSON_HEADER = {"Content-Type": "application/json"}
 
 
@@ -23,6 +22,17 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
+
+class Notifier(object):
+    verbose: True
+
+    @classmethod
+    def emit(cls, *args, **kwargs):
+        if cls.verbose:
+            print(*args, **kwargs)
+
+def dump_json (json_data):
+    return '{JSON}{DATA}{END}'.format(DATA=json.dumps(json_data, indent=2, sort_keys=True), JSON=bcolors.OKBLUE, END=bcolors.ENDC)
 
 def log_start(url: str, verb: str, runs: int):
     print('Running {0} request to {API}{OK}{1}{END}{END} - {OK}{2}{END} time(s):'.format(
