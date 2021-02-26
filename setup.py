@@ -20,7 +20,7 @@ setuptools.setup(
     ],
     install_requires=[
         "click==6.7",
-        "aiohttp==3.6.2",
+        "aiohttp==3.7.4",
         "requests==2.23.0"
     ],
     python_requires='>=3.6',
